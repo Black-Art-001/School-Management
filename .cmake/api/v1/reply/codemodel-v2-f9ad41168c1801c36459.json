@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-800fb07cbd278a906d33.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "SchoolManagment",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "SchoolManagment::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SchoolManagment-Debug-31ea98916fe5e460fa80.json",
+					"name" : "SchoolManagment",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SchoolManagment_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SchoolManagment_autogen-Debug-6d4de65e690dd69b28f5.json",
+					"name" : "SchoolManagment_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SchoolManagment_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SchoolManagment_autogen_timestamp_deps-Debug-ac03a87cce2c9d34b174.json",
+					"name" : "SchoolManagment_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/work/Qt/School management application/School management",
+		"source" : "D:/work/Qt/School management application/School management"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
