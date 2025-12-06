@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include "datacapsul.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,7 +27,10 @@ public:
     void openFiledb() ;
     bool areYouSure(QWidget *parent, QString title, QString text , QMessageBox::Icon icon) ; // make a question befor doing action !
     void setTablesInComboBox() ;
+    void DropTable();
+    friend class AddTable ;
 
+    QFont getUIfont() const;
 
 public slots :
     void showTable_() ;
@@ -36,9 +40,14 @@ public slots :
     void removeByRow() ;
     void changeTable(int index) ;
     void editTable() ;
+    void clearAll() ;
+    void RoidVisibilty() ;
+    void addNewTable() ;
+    void readNewTable(TableData td) ;
 
 private slots:
-
+    void setUIfont() ; // this is for text that show on ui
+    void setTableFont() ; // this is for text that show in table
     void on_pushButton_clicked();
 
 private:
@@ -46,6 +55,8 @@ private:
     DataBase *data ;
     QString file_path , file_name ;
     bool isDataBaseOpened ;
-
+    QFont UIfont ;
+    QFont TableFont ;
+;
 };
 #endif // MAINWINDOW_H

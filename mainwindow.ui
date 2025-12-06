@@ -17,18 +17,18 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>30</y>
-      <width>391</width>
-      <height>291</height>
+      <x>10</x>
+      <y>40</y>
+      <width>651</width>
+      <height>411</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="show_table">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>70</y>
+      <x>10</x>
+      <y>10</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -37,24 +37,11 @@
      <string>show</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>670</x>
-      <y>320</y>
-      <width>49</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>search : </string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="insert_table">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>100</y>
+      <x>90</x>
+      <y>10</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -66,8 +53,8 @@
    <widget class="QPushButton" name="remove">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>130</y>
+      <x>170</x>
+      <y>10</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -79,8 +66,8 @@
    <widget class="QPushButton" name="edit_cell">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>160</y>
+      <x>250</x>
+      <y>10</y>
       <width>80</width>
       <height>24</height>
      </rect>
@@ -92,24 +79,50 @@
    <widget class="QComboBox" name="select_table">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>190</y>
+      <x>580</x>
+      <y>10</y>
       <width>81</width>
-      <height>21</height>
+      <height>24</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>220</y>
-      <width>81</width>
-      <height>61</height>
+      <x>410</x>
+      <y>10</y>
+      <width>91</width>
+      <height>24</height>
      </rect>
     </property>
     <property name="text">
      <string>debug</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="create">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>create</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="dropTable">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>10</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete Table</string>
     </property>
    </widget>
   </widget>
@@ -128,6 +141,7 @@
     </property>
     <addaction name="actionnew"/>
     <addaction name="actionOpen"/>
+    <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -144,8 +158,16 @@
     <addaction name="actionInfo"/>
     <addaction name="actionAbout"/>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShow_table"/>
+    <addaction name="actionShow_ROWID"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -185,6 +207,16 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionShow_table">
+   <property name="text">
+    <string>Show table</string>
+   </property>
+  </action>
+  <action name="actionShow_ROWID">
+   <property name="text">
+    <string>✓ Show ROWID</string>
    </property>
   </action>
  </widget>

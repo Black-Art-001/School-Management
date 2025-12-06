@@ -1,5 +1,8 @@
 D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/work/Qt/School\ management\ application/School\ management/mainwindow.h \
   D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/moc_predefs.h \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QObject \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QString \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QVector \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/q17memory.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/q20functional.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/q20iterator.h \
@@ -124,6 +127,7 @@ D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qutf8stringview.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qvariant.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qvarlengtharray.h \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qvector.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qversiontagging.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qyieldcpu.h \
@@ -377,4 +381,5 @@ D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6
   D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/sys/types.h \
   D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
-  D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+  D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
+  D:/work/Qt/School\ management\ application/School\ management/datacapsul.h

@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-800fb07cbd278a906d33.json",
+					"jsonFile" : "directory-.-Debug-e43ace0f3b65dac7c4aa.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SchoolManagment::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SchoolManagment-Debug-492336afafb9837a40c9.json",
+					"jsonFile" : "target-SchoolManagment-Debug-7ded4571a9261c86bb85.json",
 					"name" : "SchoolManagment",
 					"projectIndex" : 0
 				},

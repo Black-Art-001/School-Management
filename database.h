@@ -14,7 +14,7 @@ public:
     // string should use "string" in text ( use \" to handle it )
     void Insert(QString values) ;
     // rows should be { name TYPE , }
-    void createTable(QString table , QString rows , QString pk = "NULL") ;
+    void createTable(QString table , QString rows , QString pk = "") ;
     // remove cell with info like : Index = Value
     void remove(QString Index_Value) ;
     // remove current file !
@@ -39,7 +39,7 @@ public:
     QStringList getType() ;
     QStringList getName() ;
     int getPK() ;
-    QString getTable() ;
+    QString getTable() ; // return table name
 private:
     QSqlQuery query ;
     QSqlDatabase dataBase ;

@@ -10,13 +10,15 @@
 #include <QDebug> // output data
 
 #include "database.h"
-
+#include "addtable.h"
 
 #include <QFileDialog> // for creating dialog
 #include <QDialog> // open new dialog
 
 #include <QLabel>
 #include <QGridLayout>
+#include <QVBoxLayout> // vertical box
+#include <QHBoxLayout> // horizontally box
 #include <QLineEdit>
 
 #define qout qDebug()
@@ -29,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    this->setTableFont() ; // set font for all texts
+
     QString path = "D:/dataBase" ;
     QString dataBaseName = "schoolDataBase.db" ;
 
@@ -38,8 +42,10 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->remove, &QPushButton::clicked , this ,&MainWindow::removeByRow) ; // remove button
     QObject::connect(ui->select_table, &QComboBox::activated , this , &MainWindow::changeTable) ; // select table
     QObject::connect(ui->edit_cell , &QPushButton::clicked , this , &MainWindow::editTable) ; // select table
-
-
+    QObject::connect(ui->actionclear_all , &QAction::triggered , this , &MainWindow::clearAll ) ; // clear all data in table
+    QObject::connect(ui->actionShow_ROWID, &QAction::triggered , this , &MainWindow::RoidVisibilty ) ; // change roid visible or unvisible
+    QObject::connect(ui->create , &QPushButton::clicked , this ,&MainWindow::addNewTable) ; // create new table
+    QObject::connect(ui->dropTable , &QPushButton::clicked , this , &MainWindow::DropTable);
 }
 
 MainWindow::~MainWindow()
@@ -109,9 +115,11 @@ bool MainWindow::areYouSure(QWidget *parent, QString title, QString text , QMess
     QMessageBox  w(icon , title , text , QMessageBox::Ok | QMessageBox::Cancel , parent) ;
     int index = w.exec() ;
     switch (index) {
-    case 0: return true ;
-    case 1: return false;
+    case QMessageBox::Ok: return true ;
+    case QMessageBox::Cancel: return false;
     }
+    qDebug() << "result of message box is out of range : " << index ;
+    return false  ;
 }
 
 void MainWindow::setTablesInComboBox()
@@ -127,13 +135,27 @@ void MainWindow::setTablesInComboBox()
 
 }
 
+void MainWindow::DropTable()
+{
+    if(this->isDataBaseOpened){
+        if(this->areYouSure(this , "Delete Table" , "Do you want delete current table ?" , QMessageBox::Question)){
+            int index = data->allTable().indexOf(data->getTable()) ;
+            if(index > 0) index-- ;
+            data->deleteTable() ;
+            selectTable(index);
+            this->setTablesInComboBox() ;
+            this->showTable_() ;
+        }
+    }
+}
+
 QStringList MainWindow::selectTable(int index)
 {
     if(this->isDataBaseOpened){
         QStringList allTables = data->allTable() ;
         if(index >= 0 and index < allTables.size()) // if index be -1 jsut return list and if index is invalid do nothing !
         {
-            data->setTableName(allTables[index]) ;
+            data->setTableName(allTables[index]) ; // select true table
             data->setTableInfo() ; // extract all name and type of this table ! we can access it with name and type
         }
         return allTables ;
@@ -288,6 +310,96 @@ void MainWindow::editTable()
         ui->tableView->selectRow(row) ;
     }
 }
+
+void MainWindow::clearAll()
+{
+    if(this->isDataBaseOpened){
+        qDebug()<< "clear all message inserted ! " ;
+        if(this->areYouSure(this , "clear all data" , "Do you want delete all data in table : " + data->getTable() , QMessageBox::Warning))
+        {
+            if(this->areYouSure(this , "Warning" , "If you delete data , you never be able to restore it !\nStill Are you sure ?" , QMessageBox::Critical))
+            {
+                data->ClearAll() ;
+            }
+        }
+        this->showTable_() ;
+    }
+}
+
+void MainWindow::RoidVisibilty()
+{
+    static bool roidVisibilty = false ; // in starting we do not need to show all row id to users
+    if(roidVisibilty) // if it visible
+        ui->tableView->setModel(data->getQueryModel(this , false)) ; // make ROWIDSelector parameter false
+    else
+        ui->tableView->setModel(data->getQueryModel(this , true)) ; // make ROWIDSelector parameter true
+
+    roidVisibilty = not roidVisibilty ; // reverse it value
+    ui->actionShow_ROWID->setText(roidVisibilty ? "✗ Hide ROWID" : "✓ Show ROWID"); // update text in it
+}
+
+// this will let you to add new table
+void MainWindow::addNewTable()
+{
+    if(this->isDataBaseOpened){
+        AddTable * w = new AddTable(this , this->data , UIfont) ; // we share parent and data
+        QObject::connect(w , &AddTable::dataReady , this , &MainWindow::readNewTable) ;
+        if(w->exec() == QDialog::Accepted){
+            this->setTablesInComboBox() ;
+            this->showTable_() ;
+            this->data->setTableInfo() ;
+        }
+    }
+}
+
+void MainWindow::readNewTable(TableData td)
+{
+    int size = td.names.size() ; // number of all column
+    QString col ;
+    QString Pkeys ;
+
+    for(int i = 0 ; i < size ; i++){
+        QString type , name;
+        name = td.names[i] ;
+        switch (td.types[i]) {
+        case 0: type = "TEXT" ;
+            break;
+        case 1 : type = "INTEGER" ;
+            break ;
+        default:
+            break;
+        }
+
+        col.append(" '" + name + "' " + type + " ") ; // ' 'name' TYPE '
+        if(i != size - 1)
+            col.append(',') ; // add comma to end of col
+        if(td.Pk[i])
+        {
+            Pkeys.append("'" + name + "'") ;
+            Pkeys.append(",") ;
+        }
+    }
+    if(not Pkeys.isEmpty())
+        Pkeys.removeLast();
+
+
+    qDebug()<< "sended name : " << td.tableName ;
+    qDebug()<< "sended column " << col ;
+    qDebug()<< "sended primary keys :" << Pkeys ;
+
+    this->data->createTable(td.tableName , col , Pkeys) ;
+}
+
+void MainWindow::setUIfont()
+{
+
+}
+
+void MainWindow::setTableFont()
+{
+    ui->tableView->setFont(UIfont) ;
+}
+
 
 
 // in debug !

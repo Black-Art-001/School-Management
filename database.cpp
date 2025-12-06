@@ -35,7 +35,7 @@ void DataBase::createTable(QString table, QString rows, QString pk)
 {
     _table = table ;
     QString sqlPkCode = ");" ;
-    if(pk != "NULL")
+    if(not pk.isEmpty())
         sqlPkCode = ", PRIMARY KEY (" + pk +  "));" ;
 
     QString sqlCode = "CREATE TABLE IF NOT EXISTS " + table + "(" + rows + sqlPkCode;
@@ -78,6 +78,7 @@ int DataBase::findRowID(int row)
     return -1 ; // does not exit
 }
 
+// delete all cell from table
 void DataBase::ClearAll()
 {
     query.exec("DELETE FROM " + _table );

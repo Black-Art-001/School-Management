@@ -48,6 +48,14 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "removeByRow",
         "changeTable",
         "editTable",
+        "clearAll",
+        "RoidVisibilty",
+        "addNewTable",
+        "readNewTable",
+        "TableData",
+        "td",
+        "setUIfont",
+        "setTableFont",
         "on_pushButton_clicked"
     };
 
@@ -72,8 +80,22 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         }}),
         // Slot 'editTable'
         QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'clearAll'
+        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'RoidVisibilty'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'addNewTable'
+        QtMocHelpers::SlotData<void()>(12, 2, QMC::AccessPublic, QMetaType::Void),
+        // Slot 'readNewTable'
+        QtMocHelpers::SlotData<void(TableData)>(13, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { 0x80000000 | 14, 15 },
+        }}),
+        // Slot 'setUIfont'
+        QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'setTableFont'
+        QtMocHelpers::SlotData<void()>(17, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_pushButton_clicked'
-        QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(18, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -107,8 +129,26 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->removeByRow(); break;
         case 6: _t->changeTable((*reinterpret_cast<std::add_pointer_t<int>>(_a[1]))); break;
         case 7: _t->editTable(); break;
-        case 8: _t->on_pushButton_clicked(); break;
+        case 8: _t->clearAll(); break;
+        case 9: _t->RoidVisibilty(); break;
+        case 10: _t->addNewTable(); break;
+        case 11: _t->readNewTable((*reinterpret_cast<std::add_pointer_t<TableData>>(_a[1]))); break;
+        case 12: _t->setUIfont(); break;
+        case 13: _t->setTableFont(); break;
+        case 14: _t->on_pushButton_clicked(); break;
         default: ;
+        }
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 11:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< TableData >(); break;
+            }
+            break;
         }
     }
 }
@@ -132,14 +172,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 15;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        if (_id < 15)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 15;
     }
     return _id;
 }
