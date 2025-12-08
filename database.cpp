@@ -20,6 +20,9 @@ DataBase::DataBase(const QString path , const QString file_name) : IndexPKName(-
     }
 
     query = QSqlQuery(dataBase) ; // send data base to query to work with it through a query
+    //query.exec("PRAGMA journal_mode=WAL") ;
+    //query.exec("PRAGMA wal_autocheckpoint=0") ;
+
 }
 
 // string should use "string" in text ( use \" to handle it )
@@ -168,6 +171,18 @@ QSqlQueryModel *DataBase::getQueryModel(QObject * parent , bool ROWIDSelector)
     return m;
 }
 
+QSqlQueryModel* DataBase::searchInTable(QObject * parent ,  QString condition)
+{
+    QString sqlCode = "SELECT * FROM " + _table +  " WHERE " + condition ;
+    query.exec(sqlCode) ;
+    qDebug() << sqlCode ;
+
+    QSqlQueryModel * m = new QSqlQueryModel(parent) ;
+    m->setQuery(query) ;
+
+    return m;
+}
+
 DataBase::~DataBase()
 {
     dataBase.close() ;
@@ -191,6 +206,20 @@ int DataBase::getPK()
 QString DataBase::getTable()
 {
     return _table;
+}
+
+void DataBase::renameTable(QString name)
+{
+    QString sqlCode = QString("ALTER TABLE %1 RENAME TO %2").arg(_table).arg(name);
+    query.exec(sqlCode) ;
+
+    this->_table = name  ; // update name
+    qDebug() << sqlCode  ;
+}
+
+void DataBase::saveDataBase()
+{
+    //query.exec("PRAGMA wal_checkpoint(FULL)") ;
 }
 
 

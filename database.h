@@ -35,11 +35,14 @@ public:
     QStringList allTable() ;
     QSqlDatabase const* dataBaseAddress() const ;
     QSqlQueryModel* getQueryModel(QObject * parent, bool ROWIDSelector = false) ;
+    QSqlQueryModel* searchInTable(QObject * parent , QString condition) ;
     ~DataBase() ;
     QStringList getType() ;
     QStringList getName() ;
     int getPK() ;
     QString getTable() ; // return table name
+    void renameTable(QString name) ;
+    void saveDataBase() ;
 private:
     QSqlQuery query ;
     QSqlDatabase dataBase ;

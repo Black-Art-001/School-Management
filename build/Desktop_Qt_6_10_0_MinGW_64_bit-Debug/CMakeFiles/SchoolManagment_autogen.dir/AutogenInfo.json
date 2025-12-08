@@ -387,15 +387,27 @@
 			null
 		],
 		[
+			"D:/work/Qt/School management application/School management/filehandler.h",
+			"MU",
+			"EWIEGA46WW/moc_filehandler.cpp",
+			null
+		],
+		[
 			"D:/work/Qt/School management application/School management/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"D:/work/Qt/School management application/School management/tablewidget.h",
+			"D:/work/Qt/School management application/School management/setupapp.h",
 			"MU",
-			"EWIEGA46WW/moc_tablewidget.cpp",
+			"EWIEGA46WW/moc_setupapp.cpp",
+			null
+		],
+		[
+			"D:/work/Qt/School management application/School management/setupfont.h",
+			"MU",
+			"EWIEGA46WW/moc_setupfont.cpp",
 			null
 		]
 	],
@@ -483,6 +495,11 @@
 			null
 		],
 		[
+			"D:/work/Qt/School management application/School management/filehandler.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/work/Qt/School management application/School management/main.cpp",
 			"MU",
 			null
@@ -493,7 +510,12 @@
 			null
 		],
 		[
-			"D:/work/Qt/School management application/School management/tablewidget.cpp",
+			"D:/work/Qt/School management application/School management/setupapp.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/work/Qt/School management application/School management/setupfont.cpp",
 			"MU",
 			null
 		]

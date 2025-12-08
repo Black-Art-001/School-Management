@@ -1,92 +1,16 @@
 # ninja log v6
-29	171	7867015853018664	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	171	7867015853018664	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-29	171	7867015853018664	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
+192	1798	7869030545071256	CMakeFiles/SchoolManagment.dir/setupfont.cpp.obj	b7667ab54a2dcc1c
 23	55	7865340302352541	CMakeFiles/clean.additional	e70e8901c59a27b7
-29	171	7867015853018664	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-1183	3367	7867012249623400	CMakeFiles/SchoolManagment.dir/SchoolManagment_autogen/mocs_compilation.cpp.obj	a91565d46ea98f54
+29	186	7869030543434280	SchoolManagment_autogen/timestamp	9acde1864e1d3927
+588	3229	7869018108374946	CMakeFiles/SchoolManagment.dir/SchoolManagment_autogen/mocs_compilation.cpp.obj	a91565d46ea98f54
 55	63	7865340302676216	clean	d6542ab91c93f907
-1223	3218	7867012250023410	CMakeFiles/SchoolManagment.dir/main.cpp.obj	54c85e791751957d
-505	2105	7865340308362810	CMakeFiles/SchoolManagment.dir/database.cpp.obj	b055e20516045c6
-172	2465	7867015854443915	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-1230	3823	7867012250093389	CMakeFiles/SchoolManagment.dir/addtable.cpp.obj	60588753a800220f
-2465	2923	7867015877381739	SchoolManagment.exe	7f40c09d55adb12a
+186	2544	7869030545011255	CMakeFiles/SchoolManagment.dir/main.cpp.obj	54c85e791751957d
+189	3476	7869030545041253	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
+160	1626	7868834260322235	CMakeFiles/SchoolManagment.dir/filehandler.cpp.obj	896c8486b6c35796
+880	3564	7868442572465472	CMakeFiles/SchoolManagment.dir/addtable.cpp.obj	60588753a800220f
+3476	4022	7869030577907801	SchoolManagment.exe	82fd2e79806fd7d3
+167	1739	7868443492339912	CMakeFiles/SchoolManagment.dir/database.cpp.obj	b055e20516045c6
 578	2709	7866337442136292	CMakeFiles/SchoolManagment.dir/tablewidget.cpp.obj	264c5997ec479f1e
-29	174	7867016404056963	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	174	7867016404056963	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-29	174	7867016404056963	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	174	7867016404056963	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-175	2437	7867016405512177	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2437	2872	7867016428131575	SchoolManagment.exe	7f40c09d55adb12a
-26	160	7867016537200557	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-26	160	7867016537200557	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-26	160	7867016537200557	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-26	160	7867016537200557	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-160	2417	7867016538549070	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2417	2871	7867016561120681	SchoolManagment.exe	7f40c09d55adb12a
-26	158	7867017346387447	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-26	158	7867017346387447	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-26	158	7867017346387447	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-26	158	7867017346387447	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-158	2502	7867017347700991	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2502	2961	7867017371145296	SchoolManagment.exe	7f40c09d55adb12a
-26	156	7867021527845280	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-26	156	7867021527845280	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-26	156	7867021527845280	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-26	156	7867021527845280	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-157	2448	7867021529147758	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2448	2904	7867021552065933	SchoolManagment.exe	7f40c09d55adb12a
-23	160	7867023569799897	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-23	160	7867023569799897	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-23	160	7867023569799897	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-23	160	7867023569799897	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-163	1657	7867023571198812	CMakeFiles/SchoolManagment.dir/database.cpp.obj	b055e20516045c6
-165	2123	7867023571228801	CMakeFiles/SchoolManagment.dir/addtable.cpp.obj	60588753a800220f
-160	2417	7867023571178794	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2417	2848	7867023593745635	SchoolManagment.exe	7f40c09d55adb12a
-30	172	7867024560964648	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-30	172	7867024560964648	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-30	172	7867024560964648	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-30	172	7867024560964648	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-172	2477	7867024562384977	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2477	2936	7867024585431894	SchoolManagment.exe	7f40c09d55adb12a
-28	170	7867046547524137	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-28	170	7867046547524137	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-28	170	7867046547524137	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-28	170	7867046547524137	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-170	2510	7867046548943433	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2510	2975	7867046572342305	SchoolManagment.exe	7f40c09d55adb12a
-27	162	7867049009679315	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-27	162	7867049009679315	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-27	162	7867049009679315	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-27	162	7867049009679315	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-163	2483	7867049011028007	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2484	2942	7867049034240246	SchoolManagment.exe	7f40c09d55adb12a
-29	167	7867051922990649	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	167	7867051922990649	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-29	167	7867051922990649	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	167	7867051922990649	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-168	2531	7867051924375817	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2531	2988	7867051948011135	SchoolManagment.exe	7f40c09d55adb12a
-45	668	7867057474802922	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-45	668	7867057474802922	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-45	668	7867057474802922	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-45	668	7867057474802922	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-673	2899	7867057475773383	CMakeFiles/SchoolManagment.dir/main.cpp.obj	54c85e791751957d
-669	3227	7867057475733346	CMakeFiles/SchoolManagment.dir/SchoolManagment_autogen/mocs_compilation.cpp.obj	a91565d46ea98f54
-678	3951	7867057475823331	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-3951	4413	7867057508556912	SchoolManagment.exe	7f40c09d55adb12a
-30	552	7867075046436541	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-30	552	7867075046436541	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-30	552	7867075046436541	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-30	552	7867075046436541	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-558	2691	7867075047311795	CMakeFiles/SchoolManagment.dir/main.cpp.obj	54c85e791751957d
-553	2811	7867075047261783	CMakeFiles/SchoolManagment.dir/SchoolManagment_autogen/mocs_compilation.cpp.obj	a91565d46ea98f54
-562	3622	7867075047351794	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-3622	4089	7867075077951174	SchoolManagment.exe	7f40c09d55adb12a
-29	173	7867076741591597	SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	173	7867076741591597	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-29	173	7867076741591597	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
-29	173	7867076741591597	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
-173	2484	7867076743036900	CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj	812b820ba4773777
-2484	2945	7867076766141243	SchoolManagment.exe	7f40c09d55adb12a
+29	186	7869030543434280	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927
+29	186	7869030543434280	D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/timestamp	9acde1864e1d3927
+29	186	7869030543434280	SchoolManagment_autogen/mocs_compilation.cpp	9acde1864e1d3927

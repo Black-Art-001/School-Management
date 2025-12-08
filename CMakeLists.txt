@@ -25,8 +25,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         database.h database.cpp
         addtable.h addtable.cpp
-        tablewidget.h tablewidget.cpp
+
         datacapsul.h
+        filehandler.h filehandler.cpp
+        setupfont.h setupfont.cpp
+        setupapp.h setupapp.cpp
 
 
     )

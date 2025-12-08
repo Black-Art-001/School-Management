@@ -89,9 +89,25 @@ build CMakeFiles/SchoolManagment.dir/addtable.cpp.obj: CXX_COMPILER__SchoolManag
   OBJECT_DIR = CMakeFiles\SchoolManagment.dir
   OBJECT_FILE_DIR = CMakeFiles\SchoolManagment.dir
 
-build CMakeFiles/SchoolManagment.dir/tablewidget.cpp.obj: CXX_COMPILER__SchoolManagment_unscanned_Debug D$:/work/Qt/School$ management$ application/School$ management/tablewidget.cpp || cmake_object_order_depends_target_SchoolManagment
+build CMakeFiles/SchoolManagment.dir/filehandler.cpp.obj: CXX_COMPILER__SchoolManagment_unscanned_Debug D$:/work/Qt/School$ management$ application/School$ management/filehandler.cpp || cmake_object_order_depends_target_SchoolManagment
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\SchoolManagment.dir\tablewidget.cpp.obj.d
+  DEP_FILE = CMakeFiles\SchoolManagment.dir\filehandler.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/include" -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtCore -isystem D:/apps/Qt/6.10.0/mingw_64/include -isystem D:/apps/Qt/6.10.0/mingw_64/mkspecs/win32-g++ -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtWidgets -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtGui -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\SchoolManagment.dir
+  OBJECT_FILE_DIR = CMakeFiles\SchoolManagment.dir
+
+build CMakeFiles/SchoolManagment.dir/setupfont.cpp.obj: CXX_COMPILER__SchoolManagment_unscanned_Debug D$:/work/Qt/School$ management$ application/School$ management/setupfont.cpp || cmake_object_order_depends_target_SchoolManagment
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\SchoolManagment.dir\setupfont.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/include" -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtCore -isystem D:/apps/Qt/6.10.0/mingw_64/include -isystem D:/apps/Qt/6.10.0/mingw_64/mkspecs/win32-g++ -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtWidgets -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtGui -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\SchoolManagment.dir
+  OBJECT_FILE_DIR = CMakeFiles\SchoolManagment.dir
+
+build CMakeFiles/SchoolManagment.dir/setupapp.cpp.obj: CXX_COMPILER__SchoolManagment_unscanned_Debug D$:/work/Qt/School$ management$ application/School$ management/setupapp.cpp || cmake_object_order_depends_target_SchoolManagment
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\SchoolManagment.dir\setupapp.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
   INCLUDES = -I"D:/work/Qt/School management application/School management/build/Desktop_Qt_6_10_0_MinGW_64_bit-Debug/SchoolManagment_autogen/include" -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtCore -isystem D:/apps/Qt/6.10.0/mingw_64/include -isystem D:/apps/Qt/6.10.0/mingw_64/mkspecs/win32-g++ -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtWidgets -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtGui -isystem D:/apps/Qt/6.10.0/mingw_64/include/QtSql
   OBJECT_DIR = CMakeFiles\SchoolManagment.dir
@@ -105,7 +121,7 @@ build CMakeFiles/SchoolManagment.dir/tablewidget.cpp.obj: CXX_COMPILER__SchoolMa
 #############################################
 # Link the executable SchoolManagment.exe
 
-build SchoolManagment.exe: CXX_EXECUTABLE_LINKER__SchoolManagment_Debug CMakeFiles/SchoolManagment.dir/SchoolManagment_autogen/mocs_compilation.cpp.obj CMakeFiles/SchoolManagment.dir/main.cpp.obj CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj CMakeFiles/SchoolManagment.dir/database.cpp.obj CMakeFiles/SchoolManagment.dir/addtable.cpp.obj CMakeFiles/SchoolManagment.dir/tablewidget.cpp.obj | D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Widgets.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Sql.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Gui.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Core.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6EntryPoint.a || SchoolManagment_autogen SchoolManagment_autogen_timestamp_deps
+build SchoolManagment.exe: CXX_EXECUTABLE_LINKER__SchoolManagment_Debug CMakeFiles/SchoolManagment.dir/SchoolManagment_autogen/mocs_compilation.cpp.obj CMakeFiles/SchoolManagment.dir/main.cpp.obj CMakeFiles/SchoolManagment.dir/mainwindow.cpp.obj CMakeFiles/SchoolManagment.dir/database.cpp.obj CMakeFiles/SchoolManagment.dir/addtable.cpp.obj CMakeFiles/SchoolManagment.dir/filehandler.cpp.obj CMakeFiles/SchoolManagment.dir/setupfont.cpp.obj CMakeFiles/SchoolManagment.dir/setupapp.cpp.obj | D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Widgets.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Sql.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Gui.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6Core.a D$:/apps/Qt/6.10.0/mingw_64/lib/libQt6EntryPoint.a || SchoolManagment_autogen SchoolManagment_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = D:/apps/Qt/6.10.0/mingw_64/lib/libQt6Widgets.a  D:/apps/Qt/6.10.0/mingw_64/lib/libQt6Sql.a  D:/apps/Qt/6.10.0/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  -ld3d12  D:/apps/Qt/6.10.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  D:/apps/Qt/6.10.0/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
