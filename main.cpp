@@ -1,21 +1,32 @@
 #include "mainwindow.h"
-#include "setupfont.h"
-
+#include "startpage.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QFont ui_font , table_font ;
-    setupFont font ;
-
-    font.loadFont(ui_font , UIFont) ;
-    font.loadFont(table_font , TableFont ) ;
-
-    MainWindow w(nullptr , &ui_font , &table_font);
-    w.show();
+    StartPage startPage;
+    int result = startPage.exec();
+    qDebug() << "===== dialog closed =====" << ">> Result : " << result ;
+    if (result == QDialog::Rejected) {
+        return 0; // User canceled
+    }
+    MainWindow *mainWindow = nullptr;
+    if (result == StartPageResult::OpenSelected) {
+        qDebug() << "Opening selected file";
+        mainWindow = new MainWindow();
+        QString address = startPage.getSelectedAddress();
+        qDebug()<< "we will open : " << address ;
+        mainWindow->getAddress(address);
+        mainWindow->openDataBaseFile();
+    }
+    else if (result == StartPageResult::Continue) {
+        qDebug() << "Continuing without database";
+        mainWindow = new MainWindow();
+    }
+    if (mainWindow) {
+        mainWindow->show();
+    }
     return a.exec();
-    font.saveFont(ui_font , UIFont) ;
-    font.saveFont(table_font , TableFont) ; //
 }

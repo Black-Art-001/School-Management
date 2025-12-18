@@ -369,6 +369,12 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/work/Qt/School management application/School management/SaveLoad.h",
+			"MU",
+			"EWIEGA46WW/moc_SaveLoad.cpp",
+			null
+		],
+		[
 			"D:/work/Qt/School management application/School management/addtable.h",
 			"MU",
 			"EWIEGA46WW/moc_addtable.cpp",
@@ -399,15 +405,9 @@
 			null
 		],
 		[
-			"D:/work/Qt/School management application/School management/setupapp.h",
+			"D:/work/Qt/School management application/School management/startpage.h",
 			"MU",
-			"EWIEGA46WW/moc_setupapp.cpp",
-			null
-		],
-		[
-			"D:/work/Qt/School management application/School management/setupfont.h",
-			"MU",
-			"EWIEGA46WW/moc_setupfont.cpp",
+			"EWIEGA46WW/moc_startpage.cpp",
 			null
 		]
 	],
@@ -485,6 +485,11 @@
 	"SOURCES" : 
 	[
 		[
+			"D:/work/Qt/School management application/School management/SaveLoad.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/work/Qt/School management application/School management/addtable.cpp",
 			"MU",
 			null
@@ -510,12 +515,7 @@
 			null
 		],
 		[
-			"D:/work/Qt/School management application/School management/setupapp.cpp",
-			"MU",
-			null
-		],
-		[
-			"D:/work/Qt/School management application/School management/setupfont.cpp",
+			"D:/work/Qt/School management application/School management/startpage.cpp",
 			"MU",
 			null
 		]

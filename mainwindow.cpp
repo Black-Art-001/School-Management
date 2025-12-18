@@ -28,7 +28,7 @@
 #define selection_connection     QObject::connect(ui->tableView->selectionModel() , &QItemSelectionModel::currentChanged , this , &MainWindow::setSelectionIndex)
 
 
-MainWindow::MainWindow(QWidget *parent , QFont *ui_font , QFont *table_font)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , INTfilter()
@@ -36,8 +36,8 @@ MainWindow::MainWindow(QWidget *parent , QFont *ui_font , QFont *table_font)
 {
     ui->setupUi(this);
 
-    UIfont = ui_font ;
-    TableFont = table_font ;
+    SaveLoad::loadFont(UIfont , UIFont) ; // loading ui font
+    SaveLoad::loadFont(TableFont , TableFonts) ; // loading table font
 
     somethingChanged = false ; // nothing to changed
 
@@ -84,7 +84,8 @@ MainWindow::MainWindow(QWidget *parent , QFont *ui_font , QFont *table_font)
     QObject::connect(ui->actionSave , &QAction::triggered , this , &MainWindow::save) ; // save
     QObject::connect(ui->actionSave_as , &QAction::triggered , this , &MainWindow::saveAs) ; // save as
     QObject::connect(ui->actionGet_backup , &QAction::triggered , this , &MainWindow::getBackUp) ; // make new back up ;
-
+    QObject::connect(ui->actionReset_Table_font , &QAction::triggered , this , &MainWindow::resetTableFont) ; // reset table font
+    QObject::connect(ui->actionreset_UI_font , &QAction::triggered , this , &MainWindow::resetUiFont) ; // reset ui font
 }
 
 MainWindow::~MainWindow()
@@ -159,7 +160,7 @@ void MainWindow::openFiledb()
 bool MainWindow::areYouSure(QWidget *parent, QString title, QString text , QMessageBox::Icon icon)
 {
     QMessageBox  w(icon , title , text , QMessageBox::Ok | QMessageBox::Cancel , parent) ;
-    w.setFont(*UIfont) ;
+    w.setFont(UIfont) ;
     int index = w.exec() ;
     switch (index) {
     case QMessageBox::Ok: return true ;
@@ -205,6 +206,10 @@ void MainWindow::setColTags()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+
+    SaveLoad::saveFont(UIfont , UIFont) ; // save table font
+    SaveLoad::saveFont(TableFont , TableFonts) ; // save table font
+
     if(not somethingChanged){
         event->accept() ;
         return ;
@@ -278,7 +283,7 @@ QStringList MainWindow::selectTable(int index)
 void MainWindow::Insert()
 {
     QDialog * insertDialog = new QDialog(this) ;
-    insertDialog->setFont(*UIfont) ;
+    insertDialog->setFont(UIfont) ;
     QStringList allIndexeName = data->getName() ; // get names
     QStringList allIndexType = data->getType() ; // get type
 
@@ -377,7 +382,7 @@ void MainWindow::editTable()
         return;
     else{
         QDialog *editWindow = new QDialog(this) ;
-        editWindow->setFont(*UIfont) ;
+        editWindow->setFont(UIfont) ;
         QGridLayout *layout = new QGridLayout(editWindow) ;
 
         editWindow->setWindowTitle("Edit Cell") ;
@@ -459,8 +464,8 @@ void MainWindow::RoidVisibilty()
 void MainWindow::addNewTable()
 {
     if(this->isDataBaseOpened){
-        AddTable * w = new AddTable(this , this->data , *UIfont) ; // we share parent and data
-        w->setFont(*UIfont) ;
+        AddTable * w = new AddTable(this , this->data , UIfont) ; // we share parent and data
+        w->setFont(UIfont) ;
         QObject::connect(w , &AddTable::dataReady , this , &MainWindow::readNewTable) ;
         if(w->exec() == QDialog::Accepted){
             this->setTablesInComboBox() ;
@@ -597,7 +602,7 @@ void MainWindow::renameTable()
         QString newName ;
 
         w->setWindowTitle("Rename Table");
-        w->setFont(*UIfont);
+        w->setFont(UIfont);
         w->setAttribute(Qt::WA_DeleteOnClose);
 
         QVBoxLayout* main = new QVBoxLayout(w) ;
@@ -671,32 +676,50 @@ void MainWindow::getBackUp()
     fileH.createBackup(file_path + "/" + file_name) ; // recreate back up
 }
 
+void MainWindow::resetUiFont()
+{
+    UIfont.setFamily("Segoe UI") ;
+    UIfont.setPointSize(9) ;
+    UIfont.setItalic(false) ;
+    UIfont.setBold(false) ;
+    this->setUIfont() ;
+}
+
+void MainWindow::resetTableFont()
+{
+    TableFont.setFamily("Segoe UI") ;
+    TableFont.setPointSize(9) ;
+    TableFont.setItalic(false) ;
+    TableFont.setBold(false) ;
+    this->setTableFont() ;
+}
+
 void MainWindow::setUIfont()
 {
     QList<QWidget *> widgets = this->findChildren<QWidget*>() ;
 
     foreach (QWidget *widget, widgets) {
         if(qobject_cast<QPushButton*>(widget)) {
-            widget->setFont(*UIfont);
+            widget->setFont(UIfont);
         }
         else if(qobject_cast<QLabel*>(widget)) {
-            widget->setFont(*UIfont);
+            widget->setFont(UIfont);
         }
         else if(qobject_cast<QComboBox*>(widget)) {
-            widget->setFont(*UIfont);
+            widget->setFont(UIfont);
         }
         else if(qobject_cast<QLineEdit*>(widget)) {
-            widget->setFont(*UIfont);
+            widget->setFont(UIfont);
         }
         else if(qobject_cast<QGroupBox*>(widget)) {
-            widget->setFont(*UIfont);
+            widget->setFont(UIfont);
         }
     }
 }
 
 void MainWindow::setTableFont()
 {
-    QFont font = *TableFont ;
+    QFont font = TableFont ;
     font.setPointSize(font.pointSize() * ui->zoomSlider->value() / 100) ;
     qDebug()<< font ;
     ui->tableView->setFont(font) ;
@@ -705,19 +728,20 @@ void MainWindow::setTableFont()
 void MainWindow::selectUIFont()
 {
     bool ok;
-    QFont font = QFontDialog::getFont(&ok , *UIfont , this , "Select UI font") ;
+    QFont font = QFontDialog::getFont(&ok , UIfont , this , "Select UI font") ;
     if(ok)
-        *UIfont = font ;
-        this->setUIfont() ;
+        UIfont = font ;
+    this->setUIfont() ;
+
 }
 
 void MainWindow::selectTableFont()
 {
     bool ok ;
-    QFont font = QFontDialog::getFont(&ok , *TableFont ,  this , "select Table font") ;
+    QFont font = QFontDialog::getFont(&ok , TableFont ,  this , "select Table font") ;
     if(ok)
-        *TableFont = font ;
-        this->setTableFont() ;
+        TableFont = font ;
+    this->setTableFont() ;
 }
 
 // in debug !
@@ -742,6 +766,7 @@ void MainWindow::openDataBaseFile()
     data->setTableInfo() ;
     this->setColTags() ;
     ui->dataBaseName->setText(this->file_name) ;
+    SaveLoad::saveHistory(file_path + "/" + file_name) ;
 }
 
 

@@ -28,8 +28,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         datacapsul.h
         filehandler.h filehandler.cpp
-        setupfont.h setupfont.cpp
-        setupapp.h setupapp.cpp
+        SaveLoad.h SaveLoad.cpp
+        startpage.h startpage.cpp startpage.ui
+
+
+
 
 
     )

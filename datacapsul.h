@@ -5,6 +5,7 @@
 #include <QString>
 #include <QVector>
 
+
 struct TableData{
     QString tableName ;
     QStringList names ;
@@ -13,5 +14,13 @@ struct TableData{
 };
 
 Q_DECLARE_METATYPE(TableData) // for passing in signals !
+
+
+
+struct historyData{
+    QStringList historyPath ;
+    QStringList historyDate ;
+};
+
 
 #endif // DATACAPSUL_H

@@ -323,6 +323,10 @@
     </property>
     <addaction name="actionUIFont"/>
     <addaction name="actionTable_font_edit"/>
+    <addaction name="separator"/>
+    <addaction name="actionreset_UI_font"/>
+    <addaction name="actionReset_Table_font"/>
+    <addaction name="separator"/>
     <addaction name="actionclear_all"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -422,6 +426,16 @@
   <action name="actionGet_backup">
    <property name="text">
     <string>Get backup</string>
+   </property>
+  </action>
+  <action name="actionreset_UI_font">
+   <property name="text">
+    <string>reset UI font</string>
+   </property>
+  </action>
+  <action name="actionReset_Table_font">
+   <property name="text">
+    <string>Reset Table font</string>
    </property>
   </action>
  </widget>

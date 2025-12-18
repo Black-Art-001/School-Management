@@ -47,6 +47,8 @@ public:
     QAction *actionSave;
     QAction *actionSave_as;
     QAction *actionGet_backup;
+    QAction *actionreset_UI_font;
+    QAction *actionReset_Table_font;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
@@ -133,6 +135,10 @@ public:
         actionSave_as->setObjectName("actionSave_as");
         actionGet_backup = new QAction(MainWindow);
         actionGet_backup->setObjectName("actionGet_backup");
+        actionreset_UI_font = new QAction(MainWindow);
+        actionreset_UI_font->setObjectName("actionreset_UI_font");
+        actionReset_Table_font = new QAction(MainWindow);
+        actionReset_Table_font->setObjectName("actionReset_Table_font");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -347,6 +353,10 @@ public:
         menuFile->addAction(actionExit);
         menuEdit->addAction(actionUIFont);
         menuEdit->addAction(actionTable_font_edit);
+        menuEdit->addSeparator();
+        menuEdit->addAction(actionreset_UI_font);
+        menuEdit->addAction(actionReset_Table_font);
+        menuEdit->addSeparator();
         menuEdit->addAction(actionclear_all);
         menuHelp->addAction(actionInfo);
         menuHelp->addAction(actionAbout);
@@ -374,6 +384,8 @@ public:
         actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         actionSave_as->setText(QCoreApplication::translate("MainWindow", "Save as", nullptr));
         actionGet_backup->setText(QCoreApplication::translate("MainWindow", "Get backup", nullptr));
+        actionreset_UI_font->setText(QCoreApplication::translate("MainWindow", "reset UI font", nullptr));
+        actionReset_Table_font->setText(QCoreApplication::translate("MainWindow", "Reset Table font", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("MainWindow", "Data Base", nullptr));
         OpenDataBase->setText(QCoreApplication::translate("MainWindow", "\360\237\223\202Open Data Base", nullptr));
         closeDataBase->setText(QCoreApplication::translate("MainWindow", "\342\234\226Close Data Base", nullptr));

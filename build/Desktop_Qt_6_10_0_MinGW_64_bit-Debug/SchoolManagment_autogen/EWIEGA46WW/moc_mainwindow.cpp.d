@@ -4,6 +4,7 @@ D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QFile \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QItemSelection \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QObject \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QSettings \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QString \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/QVector \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/q17memory.h \
@@ -95,6 +96,7 @@ D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qscopedpointer.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qscopeguard.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qset.h \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qsettings.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qshareddata.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qshareddata_impl.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qsharedpointer.h \
@@ -146,6 +148,7 @@ D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qversiontagging.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qxptype_traits.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtCore/qyieldcpu.h \
+  D:/apps/Qt/6.10.0/mingw_64/include/QtGui/QFont \
   D:/apps/Qt/6.10.0/mingw_64/include/QtGui/qaction.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtGui/qbitmap.h \
   D:/apps/Qt/6.10.0/mingw_64/include/QtGui/qbrush.h \
@@ -427,5 +430,6 @@ D:/work/Qt/School\ management\ application/School\ management/build/Desktop_Qt_6
   D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   D:/apps/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+  D:/work/Qt/School\ management\ application/School\ management/SaveLoad.h \
   D:/work/Qt/School\ management\ application/School\ management/datacapsul.h \
   D:/work/Qt/School\ management\ application/School\ management/filehandler.h

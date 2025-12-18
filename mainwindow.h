@@ -6,6 +6,8 @@
 #include "datacapsul.h"
 #include "filehandler.h"
 #include<QItemSelection>
+#include "SaveLoad.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,7 +23,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent , QFont *ui_font , QFont *table_font);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void getAddress(QString filePath) ; // extract address and set in file path and file name
     void openDataBase() ; // open new data base
@@ -58,7 +60,7 @@ private slots:
     void setTableFont() ; // this is for text that show in table
     void selectUIFont() ;
     void selectTableFont() ;
-    void on_pushButton_clicked();
+    void on_pushButton_clicked(); // what is this ?
     void updateZoomPercent(int) ;
     void setSelectionIndex(const QModelIndex selected, const QModelIndex ) ;
     void renameTable() ;
@@ -66,14 +68,16 @@ private slots:
     void discard() ;
     void saveAs() ;
     void getBackUp() ;
+    void resetUiFont() ;
+    void resetTableFont() ;
 
 private:
     Ui::MainWindow *ui;
     DataBase *data ;
     QString file_path , file_name ;
     bool isDataBaseOpened ;
-    QFont *UIfont ;
-    QFont *TableFont ;
+    QFont UIfont ;
+    QFont TableFont ;
     QIntValidator *intValidator;
     QStringList INTfilter ;
     QStringList TXTfilter ;
