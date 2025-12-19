@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management - User Manual</title>
+    <style>
+        :root {
+            --color-DG: #066057;
+            --color-MG: #318067;
+            --color-LG: #4bc1a0;
+            --color-LY: #c9d1a5;
+            --color-LO: #e1814c;
+            --color-LR: #d05657;
+            --color-text: #333333;
+            --color-bg: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--color-DG), var(--color-MG));
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: var(--color-LG);
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: white;
+            color: var(--color-DG);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-btn:hover {
+            background: var(--color-LY);
+            transform: translateY(-2px);
+            border-color: var(--color-DG);
+        }
+
+        /* Main Content */
+        main {
+            padding: 30px;
+        }
+
+        section {
+            margin-bottom: 40px;
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            color: var(--color-DG);
+            border-bottom: 3px solid var(--color-LG);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "▶";
+            color: var(--color-LO);
+            font-size: 1.2em;
+        }
+
+        h3 {
+            color: var(--color-MG);
+            margin: 25px 0 15px;
+            font-size: 1.4em;
+            padding-left: 20px;
+            border-left: 4px solid var(--color-LY);
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: linear-gradient(to right, rgba(75, 193, 160, 0.1), rgba(201, 209, 165, 0.1));
+            border-left: 5px solid var(--color-LG);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateX(10px);
+        }
+
+        /* Tables */
+        .feature-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .feature-table th {
+            background: var(--color-DG);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .feature-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .feature-table tr:nth-child(even) {
+            background: rgba(75, 193, 160, 0.05);
+        }
+
+        .feature-table tr:hover {
+            background: rgba(201, 209, 165, 0.2);
+        }
+
+        /* Code Blocks */
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.95em;
+        }
+
+        .code-comment {
+            color: #75715e;
+        }
+
+        .code-keyword {
+            color: #66d9ef;
+        }
+
+        .code-string {
+            color: #e6db74;
+        }
+
+        /* Steps */
+        .step {
+            background: white;
+            border: 2px solid var(--color-LY);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .step-number {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: var(--color-LO);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Tips and Warnings */
+        .tip-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .warning-box {
+            background: #ffebee;
+            border-left: 4px solid #f44336;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .note-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Icons */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background: var(--color-LG);
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        /* Keyboard Shortcuts */
+        .shortcut {
+            display: inline-block;
+            background: #2d2d2d;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            margin: 0 5px;
+            font-size: 0.9em;
+        }
+
+        /* Screenshot Placeholder */
+        .screenshot {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 300px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot::before {
+            content: "📊 Application Screenshot";
+            position: absolute;
+            z-index: 1;
+        }
+
+        .screenshot::after {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+            100% { opacity: 0.3; }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-DG);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-btn {
+                width: 90%;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 School Management System</h1>
+            <p class="subtitle">Complete User Manual & Operation Guide</p>
+            <p>Version 1.0 | Built with Qt & SQLite</p>
+        </header>
+
+        <nav class="main-nav">
+            <a href="#overview" class="nav-btn">Overview</a>
+            <a href="#getting-started" class="nav-btn">Getting Started</a>
+            <a href="#database" class="nav-btn">Database Operations</a>
+            <a href="#tables" class="nav-btn">Table Management</a>
+            <a href="#data" class="nav-btn">Data Operations</a>
+            <a href="#search" class="nav-btn">Search & Filter</a>
+            <a href="#ui" class="nav-btn">UI Customization</a>
+            <a href="#shortcuts" class="nav-btn">Shortcuts</a>
+            <a href="#troubleshooting" class="nav-btn">Troubleshooting</a>
+        </nav>
+
+        <main>
+            <!-- Section 1: Overview -->
+            <section id="overview">
+                <h2>🏫 System Overview</h2>
+                <div class="content-card">
+                    <p>The School Management System is a comprehensive desktop application designed to manage all school administrative tasks. Built with C++ and Qt framework, it provides a robust, user-friendly interface for managing student data, teacher information, courses, grades, and more.</p>
+
+                    <h3>Key Features:</h3>
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Description</th>
+                                <th>Access Method</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Database Management</strong></td>
+                                <td>Create, open, and manage SQLite database files</td>
+                                <td>File menu / Toolbar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Table Operations</strong></td>
+                                <td>Create, rename, delete tables with custom schemas</td>
+                                <td>Table Management panel</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Entry</strong></td>
+                                <td>Add, edit, delete student/teacher records</td>
+                                <td>Insert/Edit buttons</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advanced Search</strong></td>
+                                <td>Filter data with multiple conditions</td>
+                                <td>Search panel</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Custom UI</strong></td>
+                                <td>Adjust fonts, colors, and zoom levels</td>
+                                <td>Settings menu</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Auto Backup</strong></td>
+                                <td>Automatic backup system for data safety</td>
+                                <td>File → Backup</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </section>
+
+            <!-- Section 2: Getting Started -->
+            <section id="getting-started">
+                <h2>🚀 Getting Started</h2>
+
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Launch the Application</h3>
+                    <p>Double-click the School Management System executable to start. You'll see the main window with menu bar, toolbar, and empty workspace.</p>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Create Your First Database</h3>
+                    <p>Go to <strong>File → New Database</strong> or press <span class="shortcut">Ctrl+N</span>. Choose a location and name for your database file.</p>
+
+                    <div class="code-block">
+                        <span class="code-comment">// Example database structure:</span><br>
+                        <span class="code-keyword">Database</span>: school_data.db<br>
+        <span class="code-keyword">Tables</span>: students, teachers, courses, grades<br>
+        <span class="code-keyword">Format</span>: SQLite (.db)
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Choose a meaningful name like "school_2024.db" for easy identification.
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Open Existing Database</h3>
+                    <p>Use <strong>File → Open Database</strong> or press <span class="shortcut">Ctrl+O</span> to open previously created databases.</p>
+                </div>
+            </section>
+
+            <!-- Section 3: Database Operations -->
+            <section id="database">
+                <h2>💾 Database Operations</h2>
+
+                <h3>Creating New Database</h3>
+                <div class="content-card">
+                    <p>When creating a new database:</p>
+                    <ol>
+                        <li>Click <strong>File → New Database</strong></li>
+                        <li>Select save location</li>
+                        <li>Enter filename (e.g., "school.db")</li>
+                        <li>Click <strong>Save</strong></li>
+                    </ol>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>Warning:</strong> If a file with the same name exists, you'll be asked to confirm overwrite. All associated SQLite files will be deleted.
+                    </div>
+                </div>
+
+                <h3>Database Backup System</h3>
+                <div class="content-card">
+                    <p>The application automatically creates backup files with <code>.backup</code> extension. Backup files are created:</p>
+                    <ul>
+                        <li>When opening a database</li>
+                        <li>When manually triggering backup (File → Get Backup)</li>
+                        <li>Before major operations</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Regularly use <strong>File → Get Backup</strong> to create manual backups before making major changes.
+                    </div>
+                </div>
+
+                <h3>Save Operations</h3>
+                <div class="content-card">
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Operation</th>
+                                <th>Shortcut</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Save</strong></td>
+                                <td><span class="shortcut">Ctrl+S</span></td>
+                                <td>Saves changes to current database</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Save As</strong></td>
+                                <td><span class="shortcut">Ctrl+Shift+S</span></td>
+                                <td>Saves database with new filename</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Close Database</strong></td>
+                                <td>-</td>
+                                <td>Closes current database connection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 4: Table Management -->
+            <section id="tables">
+                <h2>📊 Table Management</h2>
+
+                <h3>Creating New Tables</h3>
+                <div class="content-card">
+                    <p>To create a table for students, teachers, or any other data:</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Click the <strong>Create Table</strong> button in the Table Management panel</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Enter table name (e.g., "students", "teachers")</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Add columns with:
+                            <ul>
+                                <li><strong>Column Name</strong>: Field name (e.g., "first_name")</li>
+                                <li><strong>Data Type</strong>: TEXT or INTEGER</li>
+                                <li><strong>Primary Key</strong>: Mark if column is unique identifier</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Click <strong>Create</strong> to add table to database</p>
+                    </div>
+
+                    <div class="code-block">
+                        <span class="code-comment">// Example SQL generated:</span><br>
+                        <span class="code-keyword">CREATE TABLE</span> students (<br>
+                        &nbsp;&nbsp;id <span class="code-keyword">INTEGER PRIMARY KEY</span>,<br>
+                        &nbsp;&nbsp;first_name <span class="code-keyword">TEXT</span>,<br>
+                        &nbsp;&nbsp;last_name <span class="code-keyword">TEXT</span>,<br>
+                        &nbsp;&nbsp;grade <span class="code-keyword">INTEGER</span>,<br>
+                        &nbsp;&nbsp;birth_date <span class="code-keyword">TEXT</span><br>
+                        )
+                    </div>
+                </div>
+
+                <h3>Table Operations</h3>
+                <div class="content-card">
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Button/Feature</th>
+                                <th>Function</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Show Table</strong> 🔄</td>
+                                <td>Refresh and display selected table</td>
+                                <td>Updates after data changes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rename Table</strong></td>
+                                <td>Change table name</td>
+                                <td>Requires confirmation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Drop Table</strong> ✗</td>
+                                <td>Delete entire table</td>
+                                <td>Permanent deletion - Use with caution!</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Table Selector</strong> ▼</td>
+                                <td>Switch between tables</td>
+                                <td>Shows all available tables</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Table Navigation</h3>
+                <div class="content-card">
+                    <p>The table view supports:</p>
+                    <ul>
+                        <li><strong>Row Selection</strong>: Click any cell to select row</li>
+                        <li><strong>Column Resizing</strong>: Drag column borders</li>
+                        <li><strong>Sorting</strong>: Click column headers to sort</li>
+                        <li><strong>ROWID Display</strong>: Toggle with View → Show ROWID</li>
+                    </ul>
+
+                    <div class="note-box">
+                        📝 <strong>Note:</strong> ROWID is SQLite's internal row identifier. Showing it can help with debugging but is usually hidden from users.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Data Operations -->
+            <section id="data">
+                <h2>✏️ Data Operations</h2>
+
+                <h3>Adding New Records</h3>
+                <div class="content-card">
+                    <p>To add a new student, teacher, or any record:</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Select the appropriate table from dropdown</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Click <strong>Insert</strong> button (→ icon)</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Fill in the form with data:
+                            <ul>
+                                <li>TEXT fields: Accept any text</li>
+                                <li>INTEGER fields: Only accept numbers</li>
+                                <li>Empty TEXT fields become 'NULL'</li>
+                                <li>Empty INTEGER fields become 0</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Click <strong>Save</strong> to add record to database</p>
+                    </div>
+                </div>
+
+                <h3>Editing Existing Records</h3>
+                <div class="content-card">
+                    <p>To modify existing data:</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Select a cell in the table view</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Click <strong>Edit Cell</strong> button</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Enter new value in the dialog</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Click <strong>Save</strong> to update</p>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Tip:</strong> Double-check the data type before editing. INTEGER fields won't accept text, and TEXT fields won't validate numbers.
+                    </div>
+                </div>
+
+                <h3>Deleting Records</h3>
+                <div class="content-card">
+                    <p>Three ways to delete data:</p>
+
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Action</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Delete Row</strong> ✗</td>
+                                <td>Select row → Click Remove button</td>
+                                <td>Deletes single selected row</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clear All</strong></td>
+                                <td>Edit → Clear All Data</td>
+                                <td>Deletes ALL rows in current table</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Drop Table</strong></td>
+                                <td>Table Management → Drop Table</td>
+                                <td>Deletes entire table structure and data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="warning-box">
+                        ⚠️ <strong>Critical Warning:</strong> "Clear All Data" requires TWO confirmations and cannot be undone! Always backup before using this feature.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Search & Filter -->
+            <section id="search">
+                <h2>🔍 Search & Filter System</h2>
+
+                <h3>How to Search</h3>
+                <div class="content-card">
+                    <p>The search panel provides powerful filtering options:</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Select column to search from dropdown</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Choose operation based on data type:
+                            <ul>
+                                <li><strong>INTEGER columns</strong>: equals, not equal, greater than, less than, at least, at most</li>
+                                <li><strong>TEXT columns</strong>: equals, contains, starts with, ends with, not contains</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Enter search value in the input field</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Click <strong>Search</strong> button to filter table</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <p>To clear filter, empty search field and click Search</p>
+                    </div>
+                </div>
+
+                <h3>Search Examples</h3>
+                <div class="content-card">
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Goal</th>
+                                <th>Column</th>
+                                <th>Operation</th>
+                                <th>Value</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Find grade 10 students</td>
+                                <td>grade</td>
+                                <td>equals</td>
+                                <td>10</td>
+                                <td>Shows only grade 10</td>
+                            </tr>
+                            <tr>
+                                <td>Find names starting with "A"</td>
+                                <td>first_name</td>
+                                <td>starts with</td>
+                                <td>A</td>
+                                <td>Shows Alice, Andrew, etc.</td>
+                            </tr>
+                            <tr>
+                                <td>Find grades above 80</td>
+                                <td>final_grade</td>
+                                <td>greater than</td>
+                                <td>80</td>
+                                <td>Shows high achievers</td>
+                            </tr>
+                            <tr>
+                                <td>Exclude absent students</td>
+                                <td>attendance</td>
+                                <td>not contains</td>
+                                <td>Absent</td>
+                                <td>Shows present students</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 7: UI Customization -->
+            <section id="ui">
+                <h2>🎨 UI Customization</h2>
+
+                <h3>Font Settings</h3>
+                <div class="content-card">
+                    <p>Customize the appearance with two separate font settings:</p>
+
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Setting</th>
+                                <th>Affects</th>
+                                <th>Access</th>
+                                <th>Reset Option</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>UI Font</strong></td>
+                                <td>Buttons, labels, menus, dialog text</td>
+                                <td>Settings → UI Font Edit</td>
+                                <td>Settings → Reset UI Font</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Table Font</strong></td>
+                                <td>Data in table view only</td>
+                                <td>Settings → Table Font Edit</td>
+                                <td>Settings → Reset Table Font</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="tip-box">
+                        💡 <strong>Design Tip:</strong> Use a clear, readable font like Segoe UI or Arial for UI elements, and a monospace font like Consolas for table data if you work with lots of numbers.
+                    </div>
+                </div>
+
+                <h3>Zoom Control</h3>
+                <div class="content-card">
+                    <p>Adjust table text size with the zoom slider:</p>
+
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p>Locate the zoom slider in the status bar</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p>Drag left to decrease text size (50% minimum)</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p>Drag right to increase text size (200% maximum)</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <p>Percentage displays next to slider</p>
+                    </div>
+                </div>
+
+                <h3>Status Bar Information</h3>
+                <div class="content-card">
+                    <p>The status bar shows:</p>
+                    <ul>
+                        <li><strong>Database Name</strong>: Currently open database file</li>
+                        <li><strong>Table Name</strong>: Currently selected table</li>
+                        <li><strong>Selected Index</strong>: Row and column of selected cell</li>
+                        <li><strong>Zoom Level</strong>: Current zoom percentage</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 8: Keyboard Shortcuts -->
+            <section id="shortcuts">
+                <h2>⌨️ Keyboard Shortcuts</h2>
+
+                <div class="content-card">
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Shortcut</th>
+                                <th>Action</th>
+                                <th>Menu Equivalent</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="shortcut">Ctrl+N</span></td>
+                                <td>New Database</td>
+                                <td>File → New Database</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">Ctrl+O</span></td>
+                                <td>Open Database</td>
+                                <td>File → Open Database</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">Ctrl+S</span></td>
+                                <td>Save Database</td>
+                                <td>File → Save</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">Ctrl+Shift+S</span></td>
+                                <td>Save As</td>
+                                <td>File → Save As</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">F5</span></td>
+                                <td>Refresh Table</td>
+                                <td>Show Table button</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">Del</span></td>
+                                <td>Delete Selected Row</td>
+                                <td>Remove button</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">Ctrl+F</span></td>
+                                <td>Focus Search Field</td>
+                                <td>Click search field</td>
+                            </tr>
+                            <tr>
+                                <td><span class="shortcut">Ctrl+Q</span></td>
+                                <td>Exit Application</td>
+                                <td>File → Exit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 9: Troubleshooting -->
+            <section id="troubleshooting">
+                <h2>🔧 Troubleshooting</h2>
+
+                <h3>Common Issues</h3>
+                <div class="content-card">
+                    <table class="feature-table">
+                        <thead>
+                            <tr>
+                                <th>Symptom</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Buttons are disabled/grayed out</td>
+                                <td>No database is open</td>
+                                <td>Open or create a database first</td>
+                            </tr>
+                            <tr>
+                                <td>"Cannot open database" error</td>
+                                <td>File is corrupted or in use</td>
+                                <td>Check if file exists, try backup restore</td>
+                            </tr>
+                            <tr>
+                                <td>Search not working</td>
+                                <td>Wrong column/operation combination</td>
+                                <td>Check data type matches operation</td>
+                            </tr>
+                            <tr>
+                                <td>Data not saving</td>
+                                <td>Database file is read-only</td>
+                                <td>Check file permissions, close other programs</td>
+                            </tr>
+                            <tr>
+                                <td>Application crashes on close</td>
+                                <td>Unsaved changes conflict</td>
+                                <td>Always save before closing</td>
+                            </tr>
+                            <tr>
+                                <td>Slow performance</td>
+                                <td>Large database file</td>
+                                <td>Use search filters, clear unused data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Error Messages Explained</h3>
+                <div class="content-card">
+                    <div class="warning-box">
+                        <strong>"Failed to open database"</strong><br>
+                        The database file might be:<br>
+                        1. In use by another program<br>
+                        2. Corrupted or incomplete<br>
+                        3. Missing file permissions<br>
+                        <em>Solution: Close other programs, check file exists, restore from backup</em>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>"All database files will be deleted"</strong><br>
+                        This appears when overwriting an existing database. The system will delete:<br>
+                        1. Main .db file<br>
+                        2. Journal files (.db-journal, .db-wal, .db-shm)<br>
+                        <em>Note: This is normal for SQLite file cleanup</em>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>"Save changes before closing?"</strong><br>
+                        You have unsaved changes. Options:<br>
+                        1. <strong>Save</strong>: Save changes and close<br>
+                        2. <strong>Discard</strong>: Lose changes, restore from backup<br>
+                        3. <strong>Cancel</strong>: Return to application<br>
+                        <em>Tip: Use File → Save regularly to avoid this</em>
+                    </div>
+                </div>
+
+                <h3>Recovery Procedures</h3>
+                <div class="content-card">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <p><strong>Lost Data Recovery</strong>: Check for .backup files in the same folder as your database</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <p><strong>Corrupted Database</strong>: Try opening the backup file instead of main .db file</p>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <p><strong>Accidental Deletion</strong>: If you cleared data by mistake, immediately close WITHOUT saving and restore from backup</p>
+                    </div>
+
+                    <div class="tip-box">
+                        💡 <strong>Best Practice:</strong> Always create manual backups (File → Get Backup) before making major changes or bulk deletions.
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <h3>Need More Help?</h3>
+            <p>For additional support, contact your system administrator or refer to the application's built-in help system.</p>
+            <p>© 2026 School Management System | Version 1.0 | Developed with Qt Framework</p>
+            <p>This documentation is updated as of December 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-btn').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in navigation
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navButtons = document.querySelectorAll('.nav-btn');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (scrollY >= (sectionTop - 100) && scrollY < (sectionTop + sectionHeight - 100)) {
+                    currentSection = section.id;
+                }
+            });
+
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('href') === `#${currentSection}`) {
+                    button.classList.add('active');
+                    button.style.background = 'var(--color-LY)';
+                    button.style.borderColor = 'var(--color-DG)';
+                } else {
+                    button.style.background = '';
+                    button.style.borderColor = '';
+                }
+            });
+        });
+
+        // Add active class to first section on load
+        window.addEventListener('load', function() {
+            document.querySelector('.nav-btn').classList.add('active');
+        });
+    </script>
+</body>
+</html>

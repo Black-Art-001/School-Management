@@ -9,11 +9,16 @@
 #include <QList>
 #include <QLineEdit>
 
+#include <QDesktopServices>
+#include <QUrl>
+#include <QFileInfo>
+#include <QDir>
+#include <QMessageBox>
+
 StartPage::StartPage(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::StartPage)
 {
-    this->setWindowTitle("SM2026") ; // it dos not shown why ?
     ui->setupUi(this);
     table = nullptr ;
     SaveLoad::loadFont(UIfont , UIFont) ;
@@ -26,6 +31,7 @@ StartPage::StartPage(QWidget *parent)
     this->updateTable() ; // if size lesser that 0 show empty massage
 
     QObject::connect(ui->clear_btn , &QPushButton::clicked , this , &StartPage::clearHistory) ; // clear all history
+    QObject::connect(ui->help_btn , &QPushButton::clicked , this , &StartPage::getHelp) ;
 }
 
 StartPage::~StartPage()
@@ -174,5 +180,23 @@ void StartPage::on_cancle_btn_clicked()
 void StartPage::on_without_btn_clicked()
 {
     done(Continue) ;
+}
+
+void StartPage::getHelp()
+{
+    qDebug() << "=== get Help called ===" ;
+    QString helpPath = QDir::currentPath() + "/help/help.html" ;
+    qDebug() << ">> File path : " << helpPath ;
+
+    QFileInfo file(helpPath) ;
+    if(file.exists()){
+        QDesktopServices::openUrl(QUrl::fromLocalFile(helpPath)) ;
+    }
+    else {
+        QMessageBox::warning(this, "Help Not Found",
+                             "Help file not found at:\n" + helpPath +
+                                 "\n\nMake sure 'help' folder exists with index.html");
+
+    }
 }
 

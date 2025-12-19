@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Management System - Help Guide</title>
+    <style>
+        :root {
+            --color-DG : #066057 ;  /* Dark Green - Primary color */
+            --color-MG : #318067 ;  /* Medium Green - Secondary color */
+            --color-LG : #4bc1a0 ;  /* Light Green - Accent color */
+            --color-LY : #c9d1a5 ;  /* Light Yellow - Highlight */
+            --color-LO : #e1814c ;  /* Light Orange - Warning/Alert */
+            --color-LR : #d05657 ;  /* Light Red - Error/Danger */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--color-DG), var(--color-LG));
+            color: white;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--color-LY);
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: var(--color-LG);
+            border-bottom: 2px solid var(--color-LG);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--color-LY);
+            margin-top: 25px;
+        }
+
+        .BoDiv {
+            background-color: var(--color-MG);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            font-size: 1.1em;
+            border-left: 5px solid var(--color-LO);
+            transition: transform 0.3s ease;
+        }
+
+        .BoDiv:hover {
+            transform: translateX(10px);
+        }
+
+        .feature-box {
+            background-color: rgba(75, 193, 160, 0.2);
+            border: 1px solid var(--color-LG);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .sql-highlight {
+            background-color: rgba(201, 209, 165, 0.2);
+            border-left: 4px solid var(--color-LY);
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            color: var(--color-LY);
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: rgba(6, 96, 87, 0.5);
+            border-radius: 10px;
+        }
+
+        .nav-button {
+            background-color: var(--color-LG);
+            color: var(--color-DG);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background-color: var(--color-LY);
+            transform: scale(1.05);
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: var(--color-LY);
+        }
+
+        .icon {
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-MG);
+            color: var(--color-LY);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏫 School Management System</h1>
+
+        <div class="nav-menu">
+            <a href="#introduction" class="nav-button">Introduction</a>
+            <a href="#features" class="nav-button">Features</a>
+            <a href="#sql-engine" class="nav-button">SQL Engine</a>
+            <a href="#usage" class="nav-button">How to Use</a>
+            <a href="#tutorial" class="nav-button">Tutorial</a>
+            <a href="#troubleshooting" class="nav-button">Troubleshooting</a>
+        </div>
+
+        <div class="BoDiv" id="introduction">
+            <h3><span class="icon">📚</span> Introduction to School Management App</h3>
+            <p>This application is designed to efficiently manage all aspects of a school's administration. Built with modern C++ and Qt framework, it provides a robust, user-friendly interface for managing student data, teacher information, courses, grades, and more.</p>
+
+            <p><strong>Primary Objectives:</strong></p>
+            <ul>
+                <li>Centralize all school data in a secure, organized database</li>
+                <li>Simplify administrative tasks for staff and teachers</li>
+                <li>Provide real-time access to student information</li>
+                <li>Generate comprehensive reports and analytics</li>
+                <li>Ensure data security and privacy compliance</li>
+            </ul>
+        </div>
+
+        <h2 id="features"><span class="icon">✨</span> Key Features</h2>
+
+        <div class="feature-box">
+            <h3><span class="icon">👨‍🎓</span> Student Management</h3>
+            <ul>
+                <li><strong>Add/Edit/Delete Students</strong> - Complete student profiles with personal information</li>
+                <li><strong>Student Search</strong> - Quick search by name, ID, or grade</li>
+                <li><strong>Attendance Tracking</strong> - Daily attendance records with reports</li>
+                <li><strong>Grade Management</strong> - Record and calculate student grades</li>
+                <li><strong>Parent Information</strong> - Contact details and communication logs</li>
+            </ul>
+        </div>
+
+        <div class="feature-box">
+            <h3><span class="icon">👩‍🏫</span> Teacher Management</h3>
+            <ul>
+                <li><strong>Teacher Profiles</strong> - Complete professional information</li>
+                <li><strong>Subject Assignment</strong> - Assign teachers to subjects and classes</li>
+                <li><strong>Schedule Management</strong> - Timetable creation and management</li>
+                <li><strong>Performance Tracking</strong> - Teacher evaluation and feedback</li>
+            </ul>
+        </div>
+
+        <div class="feature-box">
+            <h3><span class="icon">📊</span> Academic Management</h3>
+            <ul>
+                <li><strong>Course Management</strong> - Create and manage courses</li>
+                <li><strong>Gradebook</strong> - Digital gradebook with automatic calculations</li>
+                <li><strong>Transcripts</strong> - Generate student transcripts and report cards</li>
+                <li><strong>Academic Calendar</strong> - School events and holiday management</li>
+            </ul>
+        </div>
+
+        <div class="feature-box">
+            <h3><span class="icon">📈</span> Reporting & Analytics</h3>
+            <ul>
+                <li><strong>Custom Reports</strong> - Generate various types of reports</li>
+                <li><strong>Statistical Analysis</strong> - Performance trends and analytics</li>
+                <li><strong>Export Functionality</strong> - Export data to PDF, Excel, CSV</li>
+                <li><strong>Dashboard</strong> - Overview of key metrics and statistics</li>
+            </ul>
+        </div>
+
+        <h2 id="sql-engine"><span class="icon">🔧</span> SQL Database Engine</h2>
+
+        <div class="BoDiv">
+            <h3><span class="icon">💾</span> Powered by SQLite</h3>
+            <p>This application uses <strong>SQLite</strong> as its database engine, providing:</p>
+
+            <div class="sql-highlight">
+                <strong>SQLite Advantages:</strong>
+                <ul>
+                    <li>Serverless - No separate database server required</li>
+                    <li>Zero Configuration - Ready to use immediately</li>
+                    <li>Cross-Platform - Works on Windows, macOS, Linux</li>
+                    <li>ACID Compliant - Ensures data integrity</li>
+                    <li>Lightweight - Single file database (small footprint)</li>
+                </ul>
+            </div>
+
+            <h4>Database Structure:</h4>
+            <p>The application creates and manages several interconnected tables:</p>
+
+            <div class="sql-highlight">
+                <strong>Main Database Tables:</strong><br>
+                • <code>students</code> - Student personal information<br>
+                • <code>teachers</code> - Teacher profiles and details<br>
+                • <code>courses</code> - Course information and scheduling<br>
+                • <code>enrollments</code> - Student course enrollment<br>
+                • <code>grades</code> - Academic performance records<br>
+                • <code>attendance</code> - Daily attendance tracking<br>
+                • <code>users</code> - System user accounts and permissions
+            </div>
+
+            <h4>Data Security:</h4>
+            <ul>
+                <li>All data is stored locally in encrypted .db files</li>
+                <li>Regular automatic backups</li>
+                <li>User authentication and access control</li>
+                <li>Audit logs for data changes</li>
+            </ul>
+        </div>
+
+        <h2 id="usage"><span class="icon">🚀</span> What You Can Do With It</h2>
+
+        <div class="BoDiv">
+            <h3><span class="icon">✅</span> Daily Operations</h3>
+            <ol>
+                <li><strong>Record Student Information</strong> - Add new students with complete profiles including contact information, medical details, and emergency contacts</li>
+                <li><strong>Manage Classes</strong> - Create class sections, assign students, and set capacity limits</li>
+                <li><strong>Track Attendance</strong> - Mark daily attendance with automatic absence notifications</li>
+                <li><strong>Enter Grades</strong> - Input assignment scores and calculate final grades</li>
+                <li><strong>Generate Reports</strong> - Create report cards, transcripts, and statistical reports</li>
+            </ol>
+        </div>
+
+        <div class="BoDiv">
+            <h3><span class="icon">📅</span> Administrative Tasks</h3>
+            <ol>
+                <li><strong>Academic Planning</strong> - Set up academic years, semesters, and grading periods</li>
+                <li><strong>Fee Management</strong> - Track tuition fees and payments (if implemented)</li>
+                <li><strong>Library Integration</strong> - Manage book borrowing and returns</li>
+                <li><strong>Transport Management</strong> - Track bus routes and student transportation</li>
+                <li><strong>Inventory Management</strong> - School equipment and resource tracking</li>
+            </ol>
+        </div>
+
+        <div class="BoDiv">
+            <h3><span class="icon">🔍</span> Data Analysis</h3>
+            <ol>
+                <li><strong>Performance Analytics</strong> - Analyze student performance trends</li>
+                <li><strong>Attendance Patterns</strong> - Identify attendance issues and patterns</li>
+                <li><strong>Demographic Reports</strong> - Generate demographic analysis of student body</li>
+                <li><strong>Teacher Performance</strong> - Evaluate teaching effectiveness</li>
+                <li><strong>Resource Allocation</strong> - Optimize resource distribution based on data</li>
+            </ol>
+        </div>
+
+        <h2 id="tutorial"><span class="icon">🎓</span> Quick Start Tutorial</h2>
+
+        <div class="BoDiv">
+            <h4>Step 1: Create Your First Database</h4>
+            <p>Go to <strong>File → New Database</strong> and choose a location to save your school database file.</p>
+
+            <h4>Step 2: Add Students</h4>
+            <p>Click the <strong>"Add Student"</strong> button and fill in the student information form.</p>
+
+            <h4>Step 3: Create Classes</h4>
+            <p>Navigate to the <strong>"Classes"</strong> tab and create class sections for different grades.</p>
+
+            <h4>Step 4: Record Attendance</h4>
+            <p>Use the <strong>"Attendance"</strong> module to mark daily student attendance.</p>
+
+            <h4>Step 5: Generate Reports</h4>
+            <p>Go to <strong>"Reports"</strong> to create and print various school reports.</p>
+        </div>
+
+        <h2 id="troubleshooting"><span class="icon">🔧</span> Troubleshooting</h2>
+
+        <div class="BoDiv">
+            <h4>Common Issues and Solutions:</h4>
+
+            <p><strong>Issue:</strong> Database won't open<br>
+            <strong>Solution:</strong> Check if file is in use by another program, ensure it has .db extension</p>
+
+            <p><strong>Issue:</strong> Slow performance with large data<br>
+            <strong>Solution:</strong> Use the built-in database optimization tool (Vacuum)</p>
+
+            <p><strong>Issue:</strong> Buttons are disabled<br>
+            <strong>Solution:</strong> Ensure a database is currently open</p>
+
+            <p><strong>Issue:</strong> Data not saving<br>
+            <strong>Solution:</strong> Check disk space and file permissions</p>
+        </div>
+
+        <div class="BoDiv">
+            <h3><span class="icon">🔮</span> Future Enhancements</h3>
+            <p>Planned features for upcoming versions:</p>
+            <ul>
+                <li>Mobile app companion for parents and teachers</li>
+                <li>Cloud synchronization for multi-campus schools</li>
+                <li>Advanced analytics with machine learning</li>
+                <li>Integration with learning management systems</li>
+                <li>Biometric attendance system integration</li>
+                <li>Multi-language support</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>© 2025 School Management System | Version 1.0 | Built with Qt and C++</p>
+            <p>This software is designed to make school administration efficient and effective.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-button').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add active class to current section in view
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.BoDiv, h2');
+            const navButtons = document.querySelectorAll('.nav-button');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (scrollY >= (sectionTop - 100)) {
+                    currentSection = section.id;
+                }
+            });
+
+            navButtons.forEach(button => {
+                button.classList.remove('active');
+                if (button.getAttribute('href') === `#${currentSection}`) {
+                    button.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

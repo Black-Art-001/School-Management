@@ -31,6 +31,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         SaveLoad.h SaveLoad.cpp
         startpage.h startpage.cpp startpage.ui
 
+        help/help.html
+        help/main_window_manual.html
+        help/aboutUs.html
+
 
 
 

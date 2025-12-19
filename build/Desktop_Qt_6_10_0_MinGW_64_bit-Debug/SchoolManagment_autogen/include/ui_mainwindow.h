@@ -92,7 +92,6 @@ public:
     QMenu *menuFile;
     QMenu *menuEdit;
     QMenu *menuHelp;
-    QMenu *menuView;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -334,13 +333,10 @@ public:
         menuEdit->setObjectName("menuEdit");
         menuHelp = new QMenu(menubar);
         menuHelp->setObjectName("menuHelp");
-        menuView = new QMenu(menubar);
-        menuView->setObjectName("menuView");
         MainWindow->setMenuBar(menubar);
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuEdit->menuAction());
-        menubar->addAction(menuView->menuAction());
         menubar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionnew);
         menuFile->addAction(actionOpen);
@@ -360,8 +356,6 @@ public:
         menuEdit->addAction(actionclear_all);
         menuHelp->addAction(actionInfo);
         menuHelp->addAction(actionAbout);
-        menuView->addAction(actionShow_table);
-        menuView->addAction(actionShow_ROWID);
 
         retranslateUi(MainWindow);
 
@@ -395,7 +389,7 @@ public:
         dropTable->setText(QCoreApplication::translate("MainWindow", "\342\234\226 Delete Table", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "Selector", nullptr));
         show_table->setText(QCoreApplication::translate("MainWindow", "\342\237\262 Reset", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "debug", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "show RoID", nullptr));
         groupBox_3->setTitle(QCoreApplication::translate("MainWindow", "Edit Table", nullptr));
         insert_table->setText(QCoreApplication::translate("MainWindow", "\342\206\247 Insert", nullptr));
         edit_cell->setText(QCoreApplication::translate("MainWindow", "\342\234\216 Edit Cell", nullptr));
@@ -412,7 +406,6 @@ public:
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
-        menuView->setTitle(QCoreApplication::translate("MainWindow", "View", nullptr));
     } // retranslateUi
 
 };

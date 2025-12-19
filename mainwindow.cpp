@@ -24,6 +24,9 @@
 
 #include <QCloseEvent> // for closing event
 
+#include <QDesktopServices> // to get desktop servise for open browser
+#include <QUrl>
+
 #define qout qDebug()
 #define selection_connection     QObject::connect(ui->tableView->selectionModel() , &QItemSelectionModel::currentChanged , this , &MainWindow::setSelectionIndex)
 
@@ -62,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->insert_table->setIcon(style()->standardIcon(QStyle::SP_ArrowForward)) ;
     ui->remove->setIcon(style()->standardIcon(QStyle::SP_DialogCancelButton)) ;
 
+    this->updateBtnAccess() ;
 
     QObject::connect(ui->actionOpen , &QAction::triggered , this , &MainWindow::openFiledb) ; // open existen file
     QObject::connect(ui->actionnew , &QAction::triggered , this , &MainWindow::newFiledb) ; // new file
@@ -86,6 +90,9 @@ MainWindow::MainWindow(QWidget *parent)
     QObject::connect(ui->actionGet_backup , &QAction::triggered , this , &MainWindow::getBackUp) ; // make new back up ;
     QObject::connect(ui->actionReset_Table_font , &QAction::triggered , this , &MainWindow::resetTableFont) ; // reset table font
     QObject::connect(ui->actionreset_UI_font , &QAction::triggered , this , &MainWindow::resetUiFont) ; // reset ui font
+    QObject::connect(ui->actionInfo , &QAction::triggered , this , &MainWindow::showHelp) ; // open help file
+    QObject::connect(ui->actionAbout , &QAction::triggered , this , &MainWindow::aboutUs) ; // open about use
+
 }
 
 MainWindow::~MainWindow()
@@ -112,6 +119,7 @@ void MainWindow::openDataBase()
     if(this->isDataBaseOpened == false){
         data = new DataBase(file_path , file_name) ;
         this->isDataBaseOpened = true ;
+        this->updateBtnAccess() ;
     }
     else
         qDebug() << "data base is opend " << data ;
@@ -121,6 +129,7 @@ void MainWindow::closeDataBase()
 {
     if(this->isDataBaseOpened == true){
         this->isDataBaseOpened = false ;
+        this->updateBtnAccess() ;
         delete data ;
         ui->tableView->setModel(nullptr) ;
         ui->dataBaseName->setText("No database is open") ;
@@ -133,13 +142,46 @@ void MainWindow::closeDataBase()
 void MainWindow::newFiledb()
 {
     if(this->isDataBaseOpened == true)
-        if(not this->areYouSure(this , "Try to open new data base" , "Are you want to open new Data Base ?" , QMessageBox::Information))
+        if(not this->areYouSure(this , "New database",
+                                 "Open new database? Current database will be closed."
+                                 , QMessageBox::Information))
             return ; // stop this progress
 
-    QString filePath = QFileDialog::getSaveFileName(this , "Create new file" , "untitel" , "Database Files (*.db);") ;
+    QString filePath = QFileDialog::getSaveFileName(this, "Create new database",
+                                                    "untitled.db",
+                                                    "Database Files (*.db)") ;
     if(not filePath.isEmpty() and not filePath.endsWith(".db") ){
         filePath += ".db" ;
     }
+
+    if(QFile::exists(filePath))
+    {
+        if(not areYouSure(this ,  "Overwrite",
+                           QString("File '%1' already exists.\nAll database files will be deleted.").arg(QFileInfo(filePath).fileName()),
+                           QMessageBox::Warning))
+        {
+            return ;
+        }
+        if(not QFile::remove(filePath))
+        {
+            QMessageBox::warning(this, "Error",
+                                 QString("Failed to open database '%1'").arg(QFileInfo(filePath).fileName()));
+            return ;
+        }
+        QFile::remove(filePath + "-journal");
+        QFile::remove(filePath + "-wal");
+        QFile::remove(filePath + "-shm");
+        QFile::remove(filePath + "-mj");
+    }
+
+    QFile file(filePath) ;
+    if(not file.open(QFile::WriteOnly)){
+        qDebug() << "we can not create new file" ;
+        file.close() ;
+        return ;
+    }
+
+    file.close() ;
     qDebug() << filePath ;
     this->getAddress(filePath) ;
     this->openDataBaseFile() ;
@@ -679,7 +721,7 @@ void MainWindow::getBackUp()
 void MainWindow::resetUiFont()
 {
     UIfont.setFamily("Segoe UI") ;
-    UIfont.setPointSize(9) ;
+    UIfont.setPointSize(10) ;
     UIfont.setItalic(false) ;
     UIfont.setBold(false) ;
     this->setUIfont() ;
@@ -692,6 +734,72 @@ void MainWindow::resetTableFont()
     TableFont.setItalic(false) ;
     TableFont.setBold(false) ;
     this->setTableFont() ;
+}
+
+void MainWindow::showHelp()
+{
+    qDebug() << "=== main help called ===" ;
+    QString helpPath = QDir::currentPath() + "/help/main_window_manual.html" ;
+    qDebug() << ">> path : " << helpPath ;
+
+    QFileInfo file(helpPath) ;
+    if(file.exists())
+    {
+        QDesktopServices::openUrl(QUrl::fromLocalFile(helpPath)) ;
+    }
+    else {
+        QMessageBox::warning(this, "Help Not Found",
+                             "Help file not found at:\n" + helpPath +
+                                 "\n\nMake sure 'help' folder exists with index.html");
+    }
+}
+
+void MainWindow::aboutUs()
+{
+    QString aboutPath = QDir::currentPath() + "/help/aboutUs.html" ;
+
+    QFileInfo file(aboutPath);
+    if(file.exists())
+        QDesktopServices::openUrl(QUrl::fromLocalFile(aboutPath)) ;
+    else{
+        QMessageBox::warning(this, "Help Not Found",
+                             "Help file not found at:\n" + aboutPath +
+                                 "\n\nMake sure 'help' folder exists with index.html");
+    }
+}
+
+void MainWindow::updateBtnAccess()
+{
+    qDebug()<< "=== update situation of btn ===" ;
+    this->BtnDataBase(this->isDataBaseOpened) ;
+
+    bool tableExit = false ;
+    if(this->isDataBaseOpened)
+    {
+        data->setTableInfo() ;
+        if(not data->getTable().isEmpty())
+            tableExit = true ;
+    }
+    this->BtnDpndTable(tableExit) ;
+}
+
+void MainWindow::BtnDataBase(bool key)
+{
+    qDebug() << "button enable : " << key ;
+    ui->pushButton->setEnabled(key) ;
+    ui->show_table->setEnabled(key) ;
+    ui->renamTable->setEnabled(key) ;
+    ui->dropTable->setEnabled(key) ;
+    ui->create->setEnabled(key) ;
+    ui->searchBox->setEnabled(key) ;
+    ui->closeDataBase->setEnabled(key) ;
+}
+
+void MainWindow::BtnDpndTable(bool key)
+{
+    ui->remove->setEnabled(key) ;
+    ui->insert_table->setEnabled(key) ;
+    ui->edit_cell->setEnabled(key) ;
 }
 
 void MainWindow::setUIfont()

@@ -121,6 +121,7 @@ void DataBase::setTableName(QString table)
 // data stored : name , type , pk !
 void DataBase::setTableInfo()
 {
+    qDebug() << "=== set table info called ===" ;
     if(IndexName.size() != 0)
         IndexName.clear() ;
     if(IndexType.size() != 0)

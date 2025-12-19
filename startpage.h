@@ -40,10 +40,9 @@ public slots :
 
 private slots:
     void on_select_btn_clicked();
-
     void on_cancle_btn_clicked();
-
     void on_without_btn_clicked();
+    void getHelp() ;
 
 private:
     Ui::StartPage *ui;
@@ -53,6 +52,7 @@ private:
 
     // fonts
     QFont UIfont ;
+
 
 } ;
 

@@ -22,6 +22,7 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -34,6 +35,8 @@ public:
     void setTablesInComboBox() ;
     void DropTable();
     void setColTags() ;
+
+
 
     QFont getUIfont() const;
 
@@ -70,6 +73,12 @@ private slots:
     void getBackUp() ;
     void resetUiFont() ;
     void resetTableFont() ;
+    void showHelp() ;
+    void aboutUs() ;
+
+    void updateBtnAccess() ;
+    void BtnDataBase(bool key) ;
+    void BtnDpndTable(bool key) ;
 
 private:
     Ui::MainWindow *ui;

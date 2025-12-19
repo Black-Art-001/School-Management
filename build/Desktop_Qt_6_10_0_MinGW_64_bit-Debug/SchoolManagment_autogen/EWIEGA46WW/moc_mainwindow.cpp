@@ -73,7 +73,13 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         "saveAs",
         "getBackUp",
         "resetUiFont",
-        "resetTableFont"
+        "resetTableFont",
+        "showHelp",
+        "aboutUs",
+        "updateBtnAccess",
+        "BtnDataBase",
+        "key",
+        "BtnDpndTable"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -147,6 +153,20 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
         QtMocHelpers::SlotData<void()>(34, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'resetTableFont'
         QtMocHelpers::SlotData<void()>(35, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'showHelp'
+        QtMocHelpers::SlotData<void()>(36, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'aboutUs'
+        QtMocHelpers::SlotData<void()>(37, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'updateBtnAccess'
+        QtMocHelpers::SlotData<void()>(38, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'BtnDataBase'
+        QtMocHelpers::SlotData<void(bool)>(39, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 40 },
+        }}),
+        // Slot 'BtnDpndTable'
+        QtMocHelpers::SlotData<void(bool)>(41, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Bool, 40 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -201,6 +221,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 26: _t->getBackUp(); break;
         case 27: _t->resetUiFont(); break;
         case 28: _t->resetTableFont(); break;
+        case 29: _t->showHelp(); break;
+        case 30: _t->aboutUs(); break;
+        case 31: _t->updateBtnAccess(); break;
+        case 32: _t->BtnDataBase((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
+        case 33: _t->BtnDpndTable((*reinterpret_cast<std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     }
@@ -237,14 +262,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 29)
+        if (_id < 34)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 29;
+        _id -= 34;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 29)
+        if (_id < 34)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 29;
+        _id -= 34;
     }
     return _id;
 }

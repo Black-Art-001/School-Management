@@ -2,30 +2,43 @@
 #include "startpage.h"
 
 #include <QApplication>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    StartPage startPage;
-    int result = startPage.exec();
-    qDebug() << "===== dialog closed =====" << ">> Result : " << result ;
-    if (result == QDialog::Rejected) {
-        return 0; // User canceled
-    }
+
+    // Create on heap
+    StartPage *startPage = new StartPage();
+    startPage->setWindowTitle("SM 2026") ;
+    int result = startPage->exec();
+    qDebug() << "Result:" << result;
+
     MainWindow *mainWindow = nullptr;
+    QString selectedAddress;
+
+    if (result == QDialog::Rejected) {
+        delete startPage;  // Clean up immediately
+        return 0;
+    }
     if (result == StartPageResult::OpenSelected) {
-        qDebug() << "Opening selected file";
+        selectedAddress = startPage->getSelectedAddress();
+        qDebug() << "Opening:" << selectedAddress;
+    }
+
+    // delete start page before main window
+    delete startPage;
+    startPage = nullptr;
+
+    // Now create main window
+    if (result == StartPageResult::OpenSelected) {
         mainWindow = new MainWindow();
-        QString address = startPage.getSelectedAddress();
-        qDebug()<< "we will open : " << address ;
-        mainWindow->getAddress(address);
+        mainWindow->getAddress(selectedAddress);
         mainWindow->openDataBaseFile();
     }
     else if (result == StartPageResult::Continue) {
-        qDebug() << "Continuing without database";
         mainWindow = new MainWindow();
     }
     if (mainWindow) {
+        mainWindow->setWindowTitle("School Management 2026");
         mainWindow->show();
     }
     return a.exec();

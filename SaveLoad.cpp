@@ -21,7 +21,7 @@ void SaveLoad::loadFont(QFont &font, QString group)
 
     setting.beginGroup(group) ;
     font.setFamily(setting.value("fontFamily" , "Segoe UI").toString()) ;
-    font.setPointSize(setting.value("fontSize" , 9).toInt()) ;
+    font.setPointSize(setting.value("fontSize" , 10).toInt()) ;
     font.setBold(setting.value("fontBold" , false).toBool()) ;
     font.setItalic(setting.value("fontItalic" , false).toBool()) ;
     setting.endGroup() ;
